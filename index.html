@@ -40,10 +40,13 @@
 
     <script>
         const apiKey = "97211f50aea1b0aeb0bfdc450c83a103";
-        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=bangalore";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-        async function checkWeather(){
-            const response = await fetch(apiUrl + `&appid=${apiKey}`);
+        const searchBox = document.querySelector(".search input");
+        const searchBtn = document.querySelector(".search button");
+
+        async function checkWeather(city){
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
             var data = await response.json();
 
             console.log(data);
